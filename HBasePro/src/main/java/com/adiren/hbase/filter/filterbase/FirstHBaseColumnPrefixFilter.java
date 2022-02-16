@@ -39,8 +39,6 @@ public class FirstHBaseColumnPrefixFilter {
                     byte[] qualifier_name = CellUtil.cloneQualifier(cell);
                     byte[] rowkey = CellUtil.cloneRow(cell);
                     byte[] value = CellUtil.cloneValue(cell);
-
-
                     //判断id和age字段，这两个字段是整形值
                     if("age".equals(Bytes.toString(qualifier_name))  || "id".equals(Bytes.toString(qualifier_name))){
                         System.out.println("数据的rowkey为 " +  Bytes.toString(rowkey)   +"======数据的列族为 " +
