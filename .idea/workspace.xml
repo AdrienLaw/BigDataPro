@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9c0ed44-6cd5-4a96-a144-75952a5411fa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_statefulwordcount/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_statefulwordcount/src/main/scala/com/adrien/spark/WordCount.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HDFS_0124/src/main/java/com/adrien/hdfs/HDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HDFS_0124/src/main/java/com/adrien/hdfs/HDFSClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HDFS_200124/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloApp/output/FlowCount1/.part-r-00000.crc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HelloApp/output/FlowCount1/part-r-00000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Spark0519/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spark0519/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Spark0519/sparkstreaming_queueRDD/src/main/scala/com/adrien/spark/QueueRdd.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_queueRDD/src/main/scala/com/adrien/spark/QueueRdd.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mr_0207/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mr_200207/src/main/java/com/adrien/mr/compress/TestCompress.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/src/main/java/com/adrien/mr/compress/TestCompress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountReducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountReducer.class" afterDir="false" />
-    </list>
+    <list default="true" id="f9c0ed44-6cd5-4a96-a144-75952a5411fa" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
