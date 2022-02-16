@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f9c0ed44-6cd5-4a96-a144-75952a5411fa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/HBasePro/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/ddml/FirstHBaseAddData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/ddml/FristHBaseCreateTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/ddml/FristHBaseGetData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/ddml/FristHBaseReadData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/ddml/FristHBaseScanData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FirstHBaseDependentColumnFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseFamilyFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseQualifierFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseRowFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseValueFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBaseColumnPrefixFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBasePageFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBasePageFilter2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBasePrefixFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBaseSingleColumnValueExcludeFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBaseSingleColumnValueFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBaseTimestampsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter2/SecondHBaseValueFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_statefulwordcount/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_statefulwordcount/src/main/scala/com/adrien/spark/WordCount.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HDFS_0124/src/main/java/com/adrien/hdfs/HDFSClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HDFS_0124/src/main/java/com/adrien/hdfs/HDFSClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HDFS_200124/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloApp/output/FlowCount1/.part-r-00000.crc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HelloApp/output/FlowCount1/part-r-00000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spark0519/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Spark0519/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Spark0519/sparkstreaming_queueRDD/src/main/scala/com/adrien/spark/QueueRdd.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../Spark0519/sparkstreaming_queueRDD/src/main/scala/com/adrien/spark/QueueRdd.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mr_0207/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mr_200207/src/main/java/com/adrien/mr/compress/TestCompress.java" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/src/main/java/com/adrien/mr/compress/TestCompress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountReducer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mr_200207/target/classes/com/adrien/mr/wordcount/WordCountReducer.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="/usr/local/mvnRep" />
+        <option name="mavenHome" value="/usr/local/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="/usr/local/apache-maven-3.6.1/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="24roryjxB1HXXwlcu1OSVmi1NBN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="foldersAlwaysOnTop" value="false" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.adiren.hbase.filter.filterbase" />
+      <recent name="com.adiren.hbase" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.FirstHBaseSingleColumnValueFilter">
+    <configuration name="FilterHBaseSingleColumnValueFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adiren.hbase.filter.filterbase.FilterHBaseSingleColumnValueFilter" />
+      <module name="HBasePro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adiren.hbase.filter.filterbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FirstHBaseSingleColumnValueFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adiren.hbase.filter.filterbase.FirstHBaseSingleColumnValueFilter" />
+      <module name="HBasePro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adiren.hbase.filter.filterbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FristHBaseColumnPrefixFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adiren.hbase.filter.filterbase.FristHBaseColumnPrefixFilter" />
+      <module name="HBasePro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adiren.hbase.filter.filterbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FristHBasePageFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adiren.hbase.filter.filterbase.FristHBasePageFilter" />
+      <module name="HBasePro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adiren.hbase.filter.filterbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FristHBasePrefixFilter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.adiren.hbase.filter.filterbase.FristHBasePrefixFilter" />
+      <module name="HBasePro" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.adiren.hbase.filter.filterbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.FirstHBaseSingleColumnValueFilter" />
+        <item itemvalue="Application.FristHBasePageFilter" />
+        <item itemvalue="Application.FristHBaseColumnPrefixFilter" />
+        <item itemvalue="Application.FristHBasePrefixFilter" />
+        <item itemvalue="Application.FilterHBaseSingleColumnValueFilter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9c0ed44-6cd5-4a96-a144-75952a5411fa" name="Default Changelist" comment="" />
+      <created>1644398268554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644398268554</updated>
+      <workItem from="1644398274076" duration="990000" />
+      <workItem from="1644400052914" duration="784000" />
+      <workItem from="1644415054657" duration="1509000" />
+      <workItem from="1644461969809" duration="8181000" />
+      <workItem from="1644820719686" duration="12366000" />
+      <workItem from="1644912650582" duration="7040000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="464" y="312" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1644829151022">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="464" y="312" key="#com.intellij.fileTypes.FileTypeChooser/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644829151022" />
+    <state width="1638" height="86" key="GridCell.Tab.0.bottom" timestamp="1644934152211">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.0.bottom/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828147634" />
+    <state width="1638" height="364" key="GridCell.Tab.0.bottom/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957819" />
+    <state width="1878" height="2" key="GridCell.Tab.0.bottom/1680.-242.1920.1080/0.0.1680.1050@1680.-242.1920.1080" timestamp="1644501918549" />
+    <state width="1638" height="317" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910896625" />
+    <state width="1638" height="206" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527614" />
+    <state width="1638" height="86" key="GridCell.Tab.0.bottom/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644934152211" />
+    <state width="1638" height="86" key="GridCell.Tab.0.center" timestamp="1644934152210">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.0.center/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828147633" />
+    <state width="1638" height="364" key="GridCell.Tab.0.center/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957817" />
+    <state width="1878" height="2" key="GridCell.Tab.0.center/1680.-242.1920.1080/0.0.1680.1050@1680.-242.1920.1080" timestamp="1644501918547" />
+    <state width="1638" height="317" key="GridCell.Tab.0.center/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910896624" />
+    <state width="1638" height="206" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527613" />
+    <state width="1638" height="86" key="GridCell.Tab.0.center/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644934152210" />
+    <state width="1638" height="86" key="GridCell.Tab.0.left" timestamp="1644934152209">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.0.left/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828147633" />
+    <state width="1638" height="364" key="GridCell.Tab.0.left/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957817" />
+    <state width="1878" height="2" key="GridCell.Tab.0.left/1680.-242.1920.1080/0.0.1680.1050@1680.-242.1920.1080" timestamp="1644501918546" />
+    <state width="1638" height="317" key="GridCell.Tab.0.left/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910896623" />
+    <state width="1638" height="206" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527612" />
+    <state width="1638" height="86" key="GridCell.Tab.0.left/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644934152209" />
+    <state width="1638" height="86" key="GridCell.Tab.0.right" timestamp="1644934152210">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.0.right/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828147634" />
+    <state width="1638" height="364" key="GridCell.Tab.0.right/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957818" />
+    <state width="1878" height="2" key="GridCell.Tab.0.right/1680.-242.1920.1080/0.0.1680.1050@1680.-242.1920.1080" timestamp="1644501918548" />
+    <state width="1638" height="317" key="GridCell.Tab.0.right/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910896624" />
+    <state width="1638" height="206" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527614" />
+    <state width="1638" height="86" key="GridCell.Tab.0.right/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644934152210" />
+    <state width="1638" height="206" key="GridCell.Tab.1.bottom" timestamp="1644913527616">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.1.bottom/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828149587" />
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957822" />
+    <state width="1638" height="237" key="GridCell.Tab.1.bottom/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910445722" />
+    <state width="1638" height="206" key="GridCell.Tab.1.bottom/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527616" />
+    <state width="1638" height="206" key="GridCell.Tab.1.center" timestamp="1644913527615">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.1.center/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828149586" />
+    <state width="1638" height="364" key="GridCell.Tab.1.center/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957820" />
+    <state width="1638" height="237" key="GridCell.Tab.1.center/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910445721" />
+    <state width="1638" height="206" key="GridCell.Tab.1.center/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527615" />
+    <state width="1638" height="206" key="GridCell.Tab.1.left" timestamp="1644913527615">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.1.left/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828149585" />
+    <state width="1638" height="364" key="GridCell.Tab.1.left/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957820" />
+    <state width="1638" height="237" key="GridCell.Tab.1.left/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910445720" />
+    <state width="1638" height="206" key="GridCell.Tab.1.left/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527615" />
+    <state width="1638" height="206" key="GridCell.Tab.1.right" timestamp="1644913527616">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state width="1638" height="253" key="GridCell.Tab.1.right/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828149587" />
+    <state width="1638" height="364" key="GridCell.Tab.1.right/1680.-242.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644461957821" />
+    <state width="1638" height="237" key="GridCell.Tab.1.right/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644910445722" />
+    <state width="1638" height="206" key="GridCell.Tab.1.right/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644913527616" />
+    <state x="2191" y="171" width="878" height="771" key="Registry" timestamp="1644933930733">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2191" y="171" width="878" height="771" key="Registry/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644933930733" />
+    <state x="2171" y="158" key="SettingsEditor" timestamp="1644933790535">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="2171" y="158" key="SettingsEditor/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644933790535" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-1" timestamp="1644471855492">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-1/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644471855492" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-2" timestamp="1644471855492">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-2/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644471855492" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-3" timestamp="1644471855493">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-3/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644471855493" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-4" timestamp="1644471855493">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-4/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644471855493" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-5" timestamp="1644472311172">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-5/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644472311172" />
+    <state x="100" y="123" width="1480" height="759" key="dock-window-6" timestamp="1644472311173">
+      <screen x="0" y="23" width="1680" height="959" />
+    </state>
+    <state x="100" y="123" width="1480" height="759" key="dock-window-6/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644472311173" />
+    <state x="208" y="190" key="new project wizard" timestamp="1644398332356">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="208" y="190" key="new project wizard/0.0.1680.1050@0.0.1680.1050" timestamp="1644398332356" />
+    <state x="505" y="228" key="run.anything.popup" timestamp="1644909300696">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="505" y="231" key="run.anything.popup/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644823514967" />
+    <state x="505" y="228" key="run.anything.popup/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644909300696" />
+    <state x="505" y="231" key="run.anything.popup/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644907470550" />
+    <state x="2353" y="230" width="766" height="746" key="search.everywhere.popup" timestamp="1644933871415">
+      <screen x="1680" y="23" width="1920" height="1057" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/1680.-219.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644828038971" />
+    <state x="505" y="230" width="670" height="741" key="search.everywhere.popup/1680.0.1920.1080/0.0.1680.1050@0.0.1680.1050" timestamp="1644908161365" />
+    <state x="505" y="230" width="670" height="741" key="search.everywhere.popup/1680.23.1920.1057/0.0.1680.1050@0.0.1680.1050" timestamp="1644909824456" />
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/1680.23.1920.1057/0.23.1680.959@0.23.1680.959" timestamp="1644916202414" />
+    <state x="2353" y="230" width="766" height="746" key="search.everywhere.popup/1680.23.1920.1057/0.23.1680.959@1680.23.1920.1057" timestamp="1644933871415" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseQualifierFilter.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/comparefilter/FristHBaseQualifierFilter.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter2/SecondHBaseValueFilter.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBasePageFilter.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/HBasePro/src/main/java/com/adiren/hbase/filter/filterbase/FirstHBasePageFilter.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
