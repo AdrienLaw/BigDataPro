@@ -1,4 +1,4 @@
-package com.adiren.hbase.filter.filterbase;
+package com.adiren.hbase.filter.expandFilter;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
@@ -6,14 +6,12 @@ import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
-import org.apache.hadoop.hbase.filter.ColumnPrefixFilter;
-import org.apache.hadoop.hbase.filter.TimestampsFilter;
+import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class FirstHBaseTimestampsFilter {
+public class FirstHBaseWhileMatchFilter {
     public static void main(String[] args) {
         Connection connection = null;
         final String TABLE_NAME = "myuser";
@@ -25,11 +23,8 @@ public class FirstHBaseTimestampsFilter {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
-            //设置时间戳过滤器
-            ArrayList<Long> longs = new ArrayList<>();
-            longs.add(11L);
-            TimestampsFilter timestampsFilter = new TimestampsFilter(longs);
-            scan.setFilter(timestampsFilter);
+            RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.NOT_EQUAL, new BinaryComparator(Bytes.toBytes("name")));
+            scan.setFilter(rowFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
                 List<Cell> cells = result.listCells();
@@ -50,6 +45,33 @@ public class FirstHBaseTimestampsFilter {
                     }
                 }
             }
+            scanner.close();
+            System.out.println("============== 应用SkipFilter =================");
+            //应用
+            WhileMatchFilter whileMatchFilter = new WhileMatchFilter(rowFilter);
+            Scan scanWhileMatch = new Scan();
+            scanWhileMatch.setFilter(whileMatchFilter);
+            ResultScanner scannerWhileMatch = table.getScanner(scanWhileMatch);
+            for (Result result : scannerWhileMatch) {
+                List<Cell> cells = result.listCells();
+                for (Cell cell : cells) {
+                    byte[] family_name = CellUtil.cloneFamily(cell);
+                    byte[] qualifier_name = CellUtil.cloneQualifier(cell);
+                    byte[] rowkey = CellUtil.cloneRow(cell);
+                    byte[] value = CellUtil.cloneValue(cell);
+                    //判断id和age字段，这两个字段是整形值
+                    if("age".equals(Bytes.toString(qualifier_name))  || "id".equals(Bytes.toString(qualifier_name))){
+                        System.out.println("数据的rowkey为 " +  Bytes.toString(rowkey)   +"======数据的列族为 " +
+                                Bytes.toString(family_name)+"======数据的列名为 " +  Bytes.toString(qualifier_name) +
+                                "==========数据的值为 " +Bytes.toInt(value));
+                    }else{
+                        System.out.println("数据的rowkey为 " +  Bytes.toString(rowkey)   +"======数据的列族为 " +
+                                Bytes.toString(family_name)+"======数据的列名为 " +  Bytes.toString(qualifier_name) +
+                                "==========数据的值为 " +Bytes.toString(value));
+                    }
+                }
+            }
+            scannerWhileMatch.close();
         } catch (Exception e) {
         }
     }

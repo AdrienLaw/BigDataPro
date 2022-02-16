@@ -1,4 +1,4 @@
-package com.adiren.hbase.filter.filterbase;
+package com.adiren.hbase.filter.expandFilter;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
@@ -6,14 +6,13 @@ import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
-import org.apache.hadoop.hbase.filter.ColumnPrefixFilter;
-import org.apache.hadoop.hbase.filter.TimestampsFilter;
+import org.apache.hadoop.hbase.filter.*;
 import org.apache.hadoop.hbase.util.Bytes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstHBaseTimestampsFilter {
+public class FirstHBaseFilterList {
     public static void main(String[] args) {
         Connection connection = null;
         final String TABLE_NAME = "myuser";
@@ -24,12 +23,21 @@ public class FirstHBaseTimestampsFilter {
         try {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
+            List<Filter> filters = new ArrayList<Filter>();
+            Filter filter1 = new RowFilter(CompareFilter.CompareOp.GREATER_OR_EQUAL,
+                    new BinaryComparator(Bytes.toBytes("XXX")));
+            filters.add(filter1);
+
+            Filter filter2 = new RowFilter(CompareFilter.CompareOp.LESS_OR_EQUAL,
+                    new BinaryComparator(Bytes.toBytes("YYY")));
+            filters.add(filter2);
+
+            Filter filter3 = new QualifierFilter(CompareFilter.CompareOp.EQUAL,
+                    new RegexStringComparator("ZZZ"));
+            filters.add(filter3);
+            FilterList filterList = new FilterList(filters);
             Scan scan = new Scan();
-            //设置时间戳过滤器
-            ArrayList<Long> longs = new ArrayList<>();
-            longs.add(11L);
-            TimestampsFilter timestampsFilter = new TimestampsFilter(longs);
-            scan.setFilter(timestampsFilter);
+            scan.setFilter(filterList);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
                 List<Cell> cells = result.listCells();
@@ -50,6 +58,7 @@ public class FirstHBaseTimestampsFilter {
                     }
                 }
             }
+            scanner.close();
         } catch (Exception e) {
         }
     }

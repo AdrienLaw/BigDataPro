@@ -6,14 +6,14 @@ import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.*;
-import org.apache.hadoop.hbase.filter.ColumnPrefixFilter;
+import org.apache.hadoop.hbase.filter.FirstKeyOnlyFilter;
 import org.apache.hadoop.hbase.filter.TimestampsFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FirstHBaseTimestampsFilter {
+public class FirstHBaseFirstKeyOnlyFilter {
     public static void main(String[] args) {
         Connection connection = null;
         final String TABLE_NAME = "myuser";
@@ -25,11 +25,11 @@ public class FirstHBaseTimestampsFilter {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
-            //设置时间戳过滤器
-            ArrayList<Long> longs = new ArrayList<>();
-            longs.add(11L);
-            TimestampsFilter timestampsFilter = new TimestampsFilter(longs);
-            scan.setFilter(timestampsFilter);
+            //设置首次行键过滤器
+            FirstKeyOnlyFilter firstKeyOnlyFilter = new FirstKeyOnlyFilter();
+            scan.setCaching(500);
+            scan.setCacheBlocks(false);
+            scan.setFilter(firstKeyOnlyFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
                 List<Cell> cells = result.listCells();
