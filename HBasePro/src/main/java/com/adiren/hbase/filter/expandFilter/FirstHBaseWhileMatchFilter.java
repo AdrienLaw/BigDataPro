@@ -23,7 +23,7 @@ public class FirstHBaseWhileMatchFilter {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
-            RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.NOT_EQUAL, new BinaryComparator(Bytes.toBytes("name")));
+            RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.NOT_EQUAL, new BinaryComparator(Bytes.toBytes("0005")));
             scan.setFilter(rowFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
@@ -46,7 +46,7 @@ public class FirstHBaseWhileMatchFilter {
                 }
             }
             scanner.close();
-            System.out.println("============== 应用SkipFilter =================");
+            System.out.println("============== 应用 WhileMatchFilter =================");
             //应用
             WhileMatchFilter whileMatchFilter = new WhileMatchFilter(rowFilter);
             Scan scanWhileMatch = new Scan();

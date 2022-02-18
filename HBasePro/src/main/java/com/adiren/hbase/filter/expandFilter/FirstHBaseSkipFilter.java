@@ -23,8 +23,8 @@ public class FirstHBaseSkipFilter {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
-            //设置首次行键过滤器
-            ValueFilter valueFilter = new ValueFilter(CompareFilter.CompareOp.EQUAL, new BinaryComparator(Bytes.toBytes("曹操")));
+            //设置值过滤器
+            ValueFilter valueFilter = new ValueFilter(CompareFilter.CompareOp.NOT_EQUAL, new BinaryComparator(Bytes.toBytes("曹操")));
             scan.setFilter(valueFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {

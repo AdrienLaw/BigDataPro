@@ -27,7 +27,7 @@ public class FirstHBaseTimestampsFilter {
             Scan scan = new Scan();
             //设置时间戳过滤器
             ArrayList<Long> longs = new ArrayList<>();
-            longs.add(11L);
+            longs.add(1644416658074L);
             TimestampsFilter timestampsFilter = new TimestampsFilter(longs);
             scan.setFilter(timestampsFilter);
             ResultScanner scanner = table.getScanner(scan);
@@ -40,7 +40,7 @@ public class FirstHBaseTimestampsFilter {
                     byte[] value = CellUtil.cloneValue(cell);
                     //判断id和age字段，这两个字段是整形值
                     if("age".equals(Bytes.toString(qualifier_name))  || "id".equals(Bytes.toString(qualifier_name))){
-                        System.out.println("数据的rowkey为 " +  Bytes.toString(rowkey)   +"======数据的列族为 " +
+                        System.out.println("数据的rowkey为** " +  Bytes.toString(rowkey)   +"======数据的列族为 " +
                                 Bytes.toString(family_name)+"======数据的列名为 " +  Bytes.toString(qualifier_name) +
                                 "==========数据的值为 " +Bytes.toInt(value));
                     }else{
