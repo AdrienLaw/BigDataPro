@@ -35,9 +35,9 @@ public class FirstHBaseSingleColumnValueExcludeFilter {
             SingleColumnValueExcludeFilter singleColumnValueExcludeFilter = new SingleColumnValueExcludeFilter(
                     Bytes.toBytes("f2"),
                     Bytes.toBytes("wife"),
-                    CompareFilter.CompareOp.EQUAL,
+                    CompareFilter.CompareOp.NOT_EQUAL,
                     new SubstringComparator("孙尚香"));
-            singleColumnValueExcludeFilter.setFilterIfMissing(true);
+            singleColumnValueExcludeFilter.setFilterIfMissing(false);
             scan.setFilter(singleColumnValueExcludeFilter);
 
             ResultScanner scanner = table.getScanner(scan);

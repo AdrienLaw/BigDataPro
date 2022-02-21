@@ -38,9 +38,9 @@ public class FirstHBaseSingleColumnValueFilter {
             SingleColumnValueFilter singleColumnValueFilter = new SingleColumnValueFilter(
                     Bytes.toBytes("f2"),
                     Bytes.toBytes("wife"),
-                    CompareFilter.CompareOp.EQUAL,
+                    CompareFilter.CompareOp.NOT_EQUAL,
                     new SubstringComparator("孙尚香"));
-            singleColumnValueFilter.setFilterIfMissing(true);
+            singleColumnValueFilter.setFilterIfMissing(false);
             scan.setFilter(singleColumnValueFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
