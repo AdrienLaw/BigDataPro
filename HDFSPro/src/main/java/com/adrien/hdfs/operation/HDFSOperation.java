@@ -12,7 +12,7 @@ public class HDFSOperation {
     @Test
     public void mkDir () throws IOException {
         Configuration configuration = new Configuration();
-        configuration.set("fs.defaultFS","hdfs://nn:9000");
+        configuration.set("fs.defaultFS","hdfs://hadoop101:9000");
         FileSystem fileSystem = FileSystem.get(configuration);
         fileSystem.mkdirs(new Path("/adrien/dir001"));
         fileSystem.close();
