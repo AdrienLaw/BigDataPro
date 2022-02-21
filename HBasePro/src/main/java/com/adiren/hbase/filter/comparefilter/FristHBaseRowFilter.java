@@ -19,9 +19,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import java.util.List;
 
 public class FristHBaseRowFilter {
-    private Connection connection ;
-    private final String TABLE_NAME = "myuser";
-    private Table table ;
 
     public static void main(String[] args) {
         Connection connection = null;
@@ -34,12 +31,12 @@ public class FristHBaseRowFilter {
         try {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
-            BinaryComparator binaryComparator = new BinaryComparator("0003".getBytes());
             /***
              * rowFilter需要加上两个参数
              * 第一个参数就是我们的比较规则
              * 第二个参数就是我们的比较对象
              */
+            BinaryComparator binaryComparator = new BinaryComparator("0003".getBytes());
             RowFilter rowFilter = new RowFilter(CompareFilter.CompareOp.LESS, binaryComparator);
             scan.setFilter(rowFilter);
             ResultScanner scanner = table.getScanner(scan);

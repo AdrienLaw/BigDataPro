@@ -33,11 +33,13 @@ public class FirstHBaseSingleColumnValueExcludeFilter {
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
             SingleColumnValueExcludeFilter singleColumnValueExcludeFilter = new SingleColumnValueExcludeFilter(
-                    Bytes.toBytes("f1"),
-                    Bytes.toBytes("name"),
+                    Bytes.toBytes("f2"),
+                    Bytes.toBytes("wife"),
                     CompareFilter.CompareOp.EQUAL,
-                    new SubstringComparator("曹操"));
+                    new SubstringComparator("孙尚香"));
+            singleColumnValueExcludeFilter.setFilterIfMissing(true);
             scan.setFilter(singleColumnValueExcludeFilter);
+
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {
                 List<Cell> cells = result.listCells();

@@ -19,11 +19,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 
 import java.util.List;
 
-public class
-FristHBaseValueFilter {
-    private Connection connection ;
-    private final String TABLE_NAME = "myuser";
-    private Table table ;
+public class FristHBaseValueFilter {
 
     public static void main(String[] args) {
         Connection connection = null;
@@ -36,7 +32,7 @@ FristHBaseValueFilter {
             connection = ConnectionFactory.createConnection(configuration);
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             Scan scan = new Scan();
-            SubstringComparator substringComparator = new SubstringComparator("8");
+            SubstringComparator substringComparator = new SubstringComparator("孙");
             //列值过滤器，过滤列值当中包含数字8的所有的列
             ValueFilter valueFilter = new ValueFilter(CompareFilter.CompareOp.EQUAL, substringComparator);
             scan.setFilter(valueFilter);

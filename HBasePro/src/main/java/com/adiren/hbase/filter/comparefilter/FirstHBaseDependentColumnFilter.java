@@ -36,9 +36,8 @@ public class FirstHBaseDependentColumnFilter {
             DependentColumnFilter dependentColumnFilter = new DependentColumnFilter(
                     Bytes.toBytes("f1"),
                     Bytes.toBytes("name"),
-                    false,
-                    CompareFilter.CompareOp.EQUAL,
-                    new BinaryPrefixComparator(Bytes.toBytes("曹操")));
+                    //决定参考列是否被包含在返回结果内，为 true 时表示参考列被返回，为 false 时表示被丢弃
+                    false);
             scan.setFilter(dependentColumnFilter);
             ResultScanner scanner = table.getScanner(scan);
             for (Result result : scanner) {

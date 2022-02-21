@@ -28,6 +28,7 @@ public class FirstHBaseTimestampsFilter {
             //设置时间戳过滤器
             ArrayList<Long> longs = new ArrayList<>();
             longs.add(1644416658074L);
+            longs.add(1645189659286L);
             TimestampsFilter timestampsFilter = new TimestampsFilter(longs);
             scan.setFilter(timestampsFilter);
             ResultScanner scanner = table.getScanner(scan);

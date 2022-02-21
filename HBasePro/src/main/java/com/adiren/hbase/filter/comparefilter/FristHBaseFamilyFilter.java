@@ -20,9 +20,6 @@ import org.apache.hadoop.hbase.util.Bytes;
 import java.util.List;
 
 public class FristHBaseFamilyFilter {
-    private Connection connection ;
-    private final String TABLE_NAME = "myuser";
-    private Table table ;
 
     public static void main(String[] args) {
         Connection connection = null;

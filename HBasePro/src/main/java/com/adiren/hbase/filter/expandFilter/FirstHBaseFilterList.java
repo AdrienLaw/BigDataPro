@@ -25,15 +25,15 @@ public class FirstHBaseFilterList {
             table = connection.getTable(TableName.valueOf(TABLE_NAME));
             List<Filter> filters = new ArrayList<Filter>();
             Filter filter1 = new RowFilter(CompareFilter.CompareOp.GREATER_OR_EQUAL,
-                    new BinaryComparator(Bytes.toBytes("XXX")));
+                    new BinaryComparator(Bytes.toBytes("0002")));
             filters.add(filter1);
 
             Filter filter2 = new RowFilter(CompareFilter.CompareOp.LESS_OR_EQUAL,
-                    new BinaryComparator(Bytes.toBytes("YYY")));
+                    new BinaryComparator(Bytes.toBytes("007")));
             filters.add(filter2);
 
             Filter filter3 = new QualifierFilter(CompareFilter.CompareOp.EQUAL,
-                    new RegexStringComparator("ZZZ"));
+                    new RegexStringComparator("phone"));
             filters.add(filter3);
             FilterList filterList = new FilterList(filters);
             Scan scan = new Scan();
