@@ -9,7 +9,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+.idea/*
 # Generated files
 .idea/**/contentModel.xml
 
@@ -56,7 +56,9 @@ out/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
-
+HBasePro/target
+HDFSPro/target
+MapReducePro/target
 # Cursive Clojure plugin
 .idea/replstate.xml
 
