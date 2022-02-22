@@ -13,13 +13,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.Tool;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 
-public class HerInputFormatMain extends Configured implements Tool {
-    @Override
-    public int run(String[] args) throws Exception {
+public class HerInputFormatMain {
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration configuration = new Configuration();
         configuration.set("mapreduce.framework.name", "local");
-        Path outPut = new Path("file:///D:/out");
+        Path outPut = new Path("hdfs://hadoop101:9000/adrien/output");
         FileSystem fileSystem = outPut.getFileSystem(configuration);
         if (fileSystem.exists(outPut)) {
             fileSystem.delete(outPut,true);
@@ -33,9 +34,9 @@ public class HerInputFormatMain extends Configured implements Tool {
         job.setMapOutputValueClass(IntWritable.class);
         job.setOutputValueClass(FloatWritable.class);
         job.setInputFormatClass(HerInputFormat.class);
-        FileInputFormat.addInputPath(job,new Path(""));
+        FileInputFormat.addInputPath(job,new Path("hdfs://hadoop101:9000/adrien/input/age"));
         FileOutputFormat.setOutputPath(job,outPut);
         System.exit(job.waitForCompletion(true) ? 0:1);
-        return 0;
     }
+
 }
