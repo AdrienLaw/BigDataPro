@@ -27,8 +27,7 @@ public class FlowMain {
          * reducetask > 分区个数 产生空文件
          * reducetask < 分区个数 报错
          */
-        job.setNumReduceTasks(7);
-
+        job.setNumReduceTasks(6);
         job.setOutputFormatClass(TextOutputFormat.class);
         TextOutputFormat.setOutputPath(job,new Path("hdfs://hadoop101:9000/adrien/output/flow/"));
 

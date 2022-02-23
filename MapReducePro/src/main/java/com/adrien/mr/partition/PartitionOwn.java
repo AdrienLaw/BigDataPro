@@ -22,7 +22,7 @@ public class PartitionOwn extends Partitioner<Text,FlowBean> {
                 return 5;
             }
         } else {
-            return 6;
+            return 5;
         }
     }
 }

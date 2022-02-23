@@ -24,8 +24,8 @@ public class FlowReducer extends Reducer<Text,FlowBean,Text,Text> {
         for (FlowBean value : values) {
             upFlow += value.getUpFlow();
             downFlow += value.getDownFlow();
-            upCountFlow = value.getUpCountFlow();
-            downCountFlow = value.getDownCountFlow();
+            upCountFlow += value.getUpCountFlow();
+            downCountFlow += value.getDownCountFlow();
         }
         context.write(key,
                 new Text(upFlow + "\t"  + downFlow + "\t" + upCountFlow + "/t" + downCountFlow));
