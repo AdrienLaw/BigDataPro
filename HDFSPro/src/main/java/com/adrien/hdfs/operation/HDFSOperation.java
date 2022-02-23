@@ -75,7 +75,7 @@ public class HDFSOperation {
         FileSystem fileSystem = FileSystem.get(configuration);
         //boolean 是否递归删除
         fileSystem.delete(
-                new Path(""),true);
+                new Path("/adrien/output/flow"),true);
         fileSystem.close();
     }
 
