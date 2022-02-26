@@ -13,10 +13,10 @@ import org.apache.hadoop.util.LineReader;
 
 import java.io.IOException;
 
-import static java.lang.System.in;
 
 /**
  * 重写 LineRecordReader :将 KV 转化为行号和行值
+ * @author luohaotian
  */
 public class HerRecordReader extends RecordReader<LongWritable, Text> {
 
@@ -45,7 +45,7 @@ public class HerRecordReader extends RecordReader<LongWritable, Text> {
         in = new LineReader(fileIn);
         start = split.getStart();
         end = start + split.getLength();
-       pos = 1;
+        pos = 1;
     }
 
     /**

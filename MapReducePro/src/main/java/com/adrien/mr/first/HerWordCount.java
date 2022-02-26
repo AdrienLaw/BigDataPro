@@ -9,13 +9,12 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
-import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
-import org.apache.hadoop.util.Tool;
-
-import java.io.FileOutputStream;
 import java.util.Properties;
 
+/**
+ * @author luohaotian
+ */
 public class HerWordCount {
     public static void main(String[] args) {
         //解决 permission 问题
@@ -27,14 +26,20 @@ public class HerWordCount {
         try {
             FileSystem fileSystem = FileSystem.get(config);
             Job job = Job.getInstance();
+            //运行de Driver
             job.setJarByClass(HerWordCount.class);
             job.setJobName("wc");
+            /**
+             * Map Reduce Class
+             */
             job.setMapperClass(HerMapper.class);
             job.setReducerClass(HerReducer.class);
+            //输出格式
             job.setMapOutputKeyClass(Text.class);
             job.setMapOutputValueClass(IntWritable.class);
+            job.setCombinerClass(HerReducer.class);
             FileInputFormat.addInputPath(job,new Path("hdfs://hadoop101:9000/adrien/input/inputher"));
-            Path outPath = new Path("hdfs://hadoop101:9000/adrien/outputher");
+            Path outPath = new Path("hdfs://hadoop101:9000/adrien/output/outputher4");
             if (fileSystem.exists(outPath)) {
                 fileSystem.delete(outPath,true);
             }
@@ -43,10 +48,8 @@ public class HerWordCount {
             if (f) {
                 System.out.println("=  欧了 =");
             }
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
     }
-
-
 }

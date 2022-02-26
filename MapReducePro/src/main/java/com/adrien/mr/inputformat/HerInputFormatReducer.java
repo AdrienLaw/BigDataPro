@@ -7,12 +7,18 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
+/**
+ * @author luohaotian
+ */
 public class HerInputFormatReducer extends Reducer<Text, IntWritable, Text, FloatWritable> {
     FloatWritable avg = new FloatWritable(0);
 
     @Override
-    protected void reduce(Text key, Iterable<IntWritable> values, Reducer<Text, IntWritable, Text, FloatWritable>.Context context) throws IOException, InterruptedException {
+    protected void reduce(Text key, Iterable<IntWritable> values, Reducer<Text, IntWritable, Text, FloatWritable>.Context context)
+            throws IOException, InterruptedException {
+        //求和
         int sum = 0;
+        //个数
         int n = 0;
         for (IntWritable value : values) {
             sum += value.get();
