@@ -12,6 +12,7 @@
         <module>HBasePro</module>
         <module>HDFSPro</module>
         <module>MapReducePro</module>
+        <module>FlinkPro</module>
     </modules>
 
 </project>
