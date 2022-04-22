@@ -1,0 +1,4 @@
+hadoop flume spark
+flume kafka spark
+elastic hadoop flink
+hive flink
