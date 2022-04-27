@@ -12,6 +12,9 @@ import org.apache.flink.streaming.api.windowing.time.Time;
 import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
+/**
+ * 取 平均值
+ */
 public class TestApplyOfTimeWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment exev = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -31,24 +34,23 @@ public class TestApplyOfTimeWindow {
                         return new Tuple2<>("countAvg",Integer.valueOf(value));
                     }
                 }
-        )
-                .keyBy(0)
+        ).keyBy(0)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(10)))
                 .apply(new WindowFunction<Tuple2<String, Integer>, Double, Tuple, TimeWindow>() {
                     @Override
                     public void apply(Tuple tuple, TimeWindow window,
-                                      Iterable<Tuple2<String, Integer>> input,
-                                      Collector<Double> out) throws Exception {
-                        Double totalNum = 0D;
-                        Double countNum = 0D;
-                        for (Tuple2<String, Integer> stringIntegerTuple2 : input) {
-                            totalNum++;
-                            countNum = countNum + stringIntegerTuple2.f1;
-                        }
+                                  Iterable<Tuple2<String, Integer>> input,
+                                  Collector<Double> out) throws Exception {
+                    Double totalNum = 0D;
+                    Double countNum = 0D;
+                    for (Tuple2<String, Integer> stringIntegerTuple2 : input) {
+                        totalNum++;
+                        countNum = countNum + stringIntegerTuple2.f1;
+                    }
                         Double v = countNum / totalNum;
                         out.collect(v);
                     }
-                }).print();
+            }).print();
 
         exev.execute();
     }

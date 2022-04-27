@@ -1,4 +1,4 @@
-package com.adrien.keystate;
+package com.adrien.keystate.demo;
 
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 

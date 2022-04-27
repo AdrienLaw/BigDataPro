@@ -1,4 +1,4 @@
-package com.adrien.keystate;
+package com.adrien.keystate.demo;
 
 import org.apache.flink.contrib.streaming.state.RocksDBStateBackend;
 import org.apache.flink.streaming.api.CheckpointingMode;
@@ -6,18 +6,18 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.environment.CheckpointConfig;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import static com.adrien.keystate.KeyedDemoOrderInfo1.string2OrderInfo1;
-import static com.adrien.keystate.KeyedDemoOrderInfo2.string2OrderInfo2;
+
+import static com.adrien.keystate.demo.KeyedDemoOrderInfo1.string2OrderInfo1;
+import static com.adrien.keystate.demo.KeyedDemoOrderInfo2.string2OrderInfo2;
 
 public class KeyedDemoOrderStream {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment enev =
                 StreamExecutionEnvironment.getExecutionEnvironment();
+
         //配置状态后端
         enev.setStateBackend(new RocksDBStateBackend("hdfs://node01:8020/flink/checkDir",
                 true));
-
-
         //每隔 1000 ms 开启一个检查点
         enev.enableCheckpointing(1000);
         enev.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
@@ -28,14 +28,12 @@ public class KeyedDemoOrderStream {
         // 同一时间最多有一个检查点
         enev.getCheckpointConfig().setMaxConcurrentCheckpoints(1);
         /*
-         * 表示一旦 Flink 处理程序被cancel后，会保留Checkpoint数据，以便根据实际需要恢复到指定的Checkpoint【详细解释见备注】
-         * ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION:表示一旦Flink处理程序被cancel后，会保留Checkpoint数据，以便根据实际需要恢复到指定的Checkpoint
+         * 表示一旦 Flink 处理程序被cancel后，会保留Checkpoint数据，以便根据实际需要恢复到指定的Checkpoint
+         *
+         * ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION: 表示一旦Flink处理程序被cancel后，会保留Checkpoint数据，以便根据实际需要恢复到指定的Checkpoint
          * ExternalizedCheckpointCleanup.DELETE_ON_CANCELLATION: 表示一旦Flink处理程序被cancel后，会删除Checkpoint数据，只有job执行失败的时候才会保存checkpoint
         */
         enev.getCheckpointConfig().enableExternalizedCheckpoints(CheckpointConfig.ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION);
-
-
-
 
 
         DataStreamSource<String> info1 =
@@ -62,7 +60,5 @@ public class KeyedDemoOrderStream {
                 .flatMap(new KeyedDemoEnRichmentFunction())
                 .print();
         enev.execute();
-
-
     }
 }

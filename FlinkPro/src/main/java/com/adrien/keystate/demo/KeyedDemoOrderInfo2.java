@@ -1,4 +1,4 @@
-package com.adrien.keystate;
+package com.adrien.keystate.demo;
 
 import lombok.Data;
 
@@ -7,7 +7,6 @@ public class KeyedDemoOrderInfo2 {
     private Long orderId;
     private String orderDate;
     private String address;
-
 
     public static KeyedDemoOrderInfo2 string2OrderInfo2(String line) {
         KeyedDemoOrderInfo2 orderInfo2 = new KeyedDemoOrderInfo2();

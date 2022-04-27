@@ -1,5 +1,6 @@
 package com.adrien.window.function;
 
+import org.apache.flink.api.common.functions.AggregateFunction;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
@@ -13,24 +14,39 @@ public class TestAggregateOfTimeWindow {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment enev = StreamExecutionEnvironment.getExecutionEnvironment();
         DataStreamSource<String> socketTextStream = enev.socketTextStream("hadoop101", 9909);
-        DataStreamSink<Tuple2<String, Integer>> dataStreamSink = socketTextStream.flatMap(new FlatMapFunction<String, Tuple2<String, Integer>>() {
-            @Override
-            public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
-                String[] splits = value.split(" ");
-                for (String split : splits) {
-                    out.collect(new Tuple2<>(split, 1));
-                }
-            }
-        }).keyBy(0)
+        DataStreamSink<Tuple2<String, Integer>> dataStreamSink = socketTextStream.flatMap(
+                new FlatMapFunction<String, Tuple2<String, Integer>>() {
+                    @Override
+                    public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
+                        String[] splits = value.split(" ");
+                        out.collect(new Tuple2<>(splits[0],Integer.valueOf(splits[1])));
+                    }
+        })
+                .keyBy(0)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
-                .aggregate(new HerAggregateFunction())
-                .print();
+                .aggregate(new AggregateFunction<Tuple2<String, Integer>, Tuple2<String,Integer>, Tuple2<String,Integer>>() {
+
+                    @Override
+                    public Tuple2<String, Integer> createAccumulator() {
+                        return  new Tuple2<String,Integer>("",0);
+                    }
+
+                    @Override
+                    public Tuple2<String, Integer> add(Tuple2<String, Integer> value, Tuple2<String, Integer> accumulator) {
+                        return new Tuple2<String,Integer>(value.f0,value.f1 + accumulator.f1);
+                    }
+
+                    @Override
+                    public Tuple2<String, Integer> getResult(Tuple2<String, Integer> accumulator) {
+                        return accumulator;
+                    }
+
+                    @Override
+                    public Tuple2<String, Integer> merge(Tuple2<String, Integer> a, Tuple2<String, Integer> b) {
+                        return new Tuple2<String,Integer>(a.f0,a.f1 + b.f1);
+                    }
+                }).print();
         enev.execute();
-        //spark spark spark
-        //  1> (spark,3)
-        //kafka spark
-        //  1> (kafka,1)
-        //  1> (spark,1)
     }
 
 }

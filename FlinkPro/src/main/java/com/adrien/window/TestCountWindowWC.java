@@ -1,23 +1,14 @@
 package com.adrien.window;
 
 import org.apache.flink.api.common.functions.FlatMapFunction;
-import org.apache.flink.api.java.tuple.Tuple;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.configuration.Configuration;
-import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
-import org.apache.flink.streaming.api.datastream.KeyedStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
-import org.apache.flink.streaming.api.datastream.WindowedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeWindows;
-import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
-import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
-import org.apache.flink.streaming.api.windowing.time.Time;
-import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
 import org.apache.flink.util.Collector;
 
-public class TestTimeWindowTumbling {
+public class TestCountWindowWC {
     public static void main(String[] args) throws Exception {
         StreamExecutionEnvironment enev = StreamExecutionEnvironment.createLocalEnvironmentWithWebUI(new Configuration());
         enev.setParallelism(1);
@@ -32,15 +23,14 @@ public class TestTimeWindowTumbling {
                     }
                 }
         });
-        SingleOutputStreamOperator<Tuple2<String, Integer>> windowOperat = keyedStream.keyBy(0)
-                //.window(TumblingEventTimeWindows.of(Time.seconds(5))) api 过期
-                //.window(TumblingProcessingTimeWindows.of(Time.seconds(5))) 这个行
-                //.window(SlidingProcessingTimeWindows.of(Time.seconds(15),Time.seconds(5)))
-                .countWindow(5,2)
+        SingleOutputStreamOperator<Tuple2<String, Integer>> windowOperat = keyedStream
+                .keyBy(0)
+                //滚动窗口 每次窗口中出现了10个相同的元素就计算结果。
+                //.countWindow(10)
+                //滑动窗口 每收到 10 个相同 key 的数据就计算一次，每一次计算的 window 范围是 20 个元素。
+                .countWindow(20,10)
                 .sum(1);
-
         windowOperat.print();
-        enev.execute("TestTimeWindowTumbling");
-
+        enev.execute("TestTimeWindow");
     }
 }

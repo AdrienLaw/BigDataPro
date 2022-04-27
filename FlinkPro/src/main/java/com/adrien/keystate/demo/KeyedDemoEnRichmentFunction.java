@@ -1,4 +1,4 @@
-package com.adrien.keystate;
+package com.adrien.keystate.demo;
 
 import org.apache.flink.api.common.state.ValueState;
 import org.apache.flink.api.common.state.ValueStateDescriptor;
@@ -10,7 +10,9 @@ import org.apache.flink.util.Collector;
 /**
  * @author luohaotian
  */
-public class KeyedDemoEnRichmentFunction extends RichCoFlatMapFunction<KeyedDemoOrderInfo1,KeyedDemoOrderInfo2, Tuple2<KeyedDemoOrderInfo1,KeyedDemoOrderInfo2>> {
+public class KeyedDemoEnRichmentFunction
+        extends RichCoFlatMapFunction <KeyedDemoOrderInfo1, KeyedDemoOrderInfo2,
+                            Tuple2<KeyedDemoOrderInfo1,KeyedDemoOrderInfo2>> {
 
     /**
      * 定义第两个 流 key对应的state

@@ -18,9 +18,7 @@ public class TestReduceOfTimeWindow {
             @Override
             public void flatMap(String value, Collector<Tuple2<String, Integer>> out) throws Exception {
                 String[] splits = value.split(" ");
-                for (String split : splits) {
-                    out.collect(new Tuple2<>(split, 1));
-                }
+                out.collect(new Tuple2<>(splits[0],Integer.valueOf(splits[1])));
             }
         }).keyBy(0)
                 .window(TumblingProcessingTimeWindows.of(Time.seconds(5)))
@@ -33,25 +31,5 @@ public class TestReduceOfTimeWindow {
                 .print();
         enev.execute();
     }
-    // spark flink
-    // spark flink
-    //      1> (spark,2)
-    //      10> (flink,2)
-    // hive hadoop
-    // flink
-    // kafka
-    //      1> (hive,1)
-    //      10> (flink,1)
-    //      11> (hadoop,1)
-    //      1> (kafka,1)
-    // hive hadoop
-    // flink
-    //      1> (hive,1)
-    //      11> (hadoop,1)
-    //      10> (flink,1)
-    // kafka
-    //      1> (kafka,1)
-    //
-
 }
 
