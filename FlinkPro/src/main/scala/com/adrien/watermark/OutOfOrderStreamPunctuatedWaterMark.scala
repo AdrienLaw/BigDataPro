@@ -22,9 +22,10 @@ object OutOfOrderStreamPunctuatedWaterMark {
     mapStream.assignTimestampsAndWatermarks(new AssignerWithPunctuatedWatermarks[(String, Long)] {
       //定义数据乱序的最大时间
       val maxOutOfOrderness=5000L
-
       //最大事件发生时间
       var currentMaxTimestamp:Long=_
+
+      //间断性生成水位线 比如 key = 000001
       override def checkAndGetNextWatermark(lastElement: (String, Long), extractedTimestamp: Long): Watermark = {
         //当用户id为000001生成watermark
         if (lastElement._1.equals("000001")) {
@@ -36,12 +37,12 @@ object OutOfOrderStreamPunctuatedWaterMark {
         }
       }
 
+      /** 抽取事件发生时间 **/
       override def extractTimestamp(element: (String, Long), recordTimestamp: Long): Long = {
         //获取事件发生时间
         val currentElementEventTime: Long = element._2
         //对比当前事件时间和历史最大事件时间, 将较大值重新赋值给currentMaxTimestamp
         currentMaxTimestamp=Math.max(currentMaxTimestamp,currentElementEventTime)
-
         println("接受到的事件："+element+" |事件时间： "+currentElementEventTime )
         //返回事件发生时间
         currentElementEventTime

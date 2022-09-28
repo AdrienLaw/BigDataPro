@@ -22,39 +22,64 @@ import java.util.List;
  */
 public class WaterMarkWindowWordCount {
     public static void main(String[] args) throws Exception {
+        /*
+         * 1. 构建流 处理环境
+         */
         StreamExecutionEnvironment exev = StreamExecutionEnvironment.getExecutionEnvironment();
+        /*
+         * 2. 设置：
+         *      并行度 1 ；
+         *      时间采用 事件时间；
+         *      水位线周期为 1s
+         */
         exev.setParallelism(1);
         exev.setStreamTimeCharacteristic(TimeCharacteristic.EventTime);
         //设置水位线产生 周期为 1s
-        exev.getConfig().setAutoWatermarkInterval(1000);
+        exev.getConfig().setAutoWatermarkInterval(10000);
+        /*
+         * 3. source:  hadoop101:9909
+         */
         DataStreamSource<String> sourceStream = exev.socketTextStream("hadoop101", 9909);
-        sourceStream.map(new MapFunction<String, Tuple2<String,Long>>() {
-            @Override
-            public Tuple2<String, Long> map(String value) throws Exception {
-                String[] splits = value.split(",");
-                return new Tuple2<>(splits[0],Long.valueOf(splits[1]));
-            }
+        /*
+         * 4. operator:
+         *      map            -->  (String,Long)
+         *      assignTimeWatermarks - Period :
+         *          当前数据流里的时间
+         *
+         *
+         */
+        sourceStream
+                .map(new MapFunction<String, Tuple2<String,Long>>() {
+                    @Override
+                    public Tuple2<String, Long> map(String value) throws Exception {
+                        String[] splits = value.split(",");
+                        return new Tuple2<>(splits[0],Long.valueOf(splits[1]));
+                    }
         })
+                //设置水位线
                 .assignTimestampsAndWatermarks(new AssignerWithPeriodicWatermarks<Tuple2<String, Long>>() {
                     FastDateFormat dateFormat = FastDateFormat.getInstance("HH:mm:ss");
+                    //当前最大时间
                     private long currentMaxEventTime = 0L;
+                    //最大允许 乱序时间
                     private long maxOutOfOrderness = 1000L;
+
                     @Override
                     public long extractTimestamp(Tuple2<String, Long> element, long recordTimestamp) {
-                        //当前 事件时间
+                        //当前事件时间
                         long currentElementEventTime = element.f1;
-                        // 谁时间大？
+                        //当前最大 v.s 当前时间 = 当前最大
                         currentMaxEventTime = Math.max(currentMaxEventTime, currentElementEventTime);
                         System.out.println("event = " + element
-                                        + "|" + dateFormat.format(element.f1) // Event Time
-                                        + "|" + dateFormat.format(currentMaxEventTime) // Max EventTime
-                                        + "|" + dateFormat.format(getCurrentWatermark().getTimestamp())); // Current Watermar
+                                        + "| 事件时间 " + dateFormat.format(element.f1) // Event Time
+                                        + "| 当前最大时间 " + dateFormat.format(currentMaxEventTime) // Max EventTime
+                                        + "| 水位线时间 " + dateFormat.format(getCurrentWatermark().getTimestamp())); // Current Watermar
                         return currentElementEventTime;
                     }
 
                     @Override
                     public Watermark getCurrentWatermark() {
-                        //System.out.println("water .. mark ...");
+                        //水位线 = 当前最大 - 允许迟到时间
                         return new Watermark(currentMaxEventTime - maxOutOfOrderness);
                     }
                 })
@@ -65,14 +90,14 @@ public class WaterMarkWindowWordCount {
                     @Override
                     public void process(Tuple tuple, Context context, Iterable<Tuple2<String, Long>> elements, Collector<String> out) throws Exception {
                         System.out.println("处理时间:" +
-                                dateFormat.format(context.currentProcessingTime())); System.out.println("window start time : " +
-                                dateFormat.format(context.window().getStart()));
+                                dateFormat.format(context.currentProcessingTime()));
+                        System.out.println("window start time : " + dateFormat.format(context.window().getStart()));
                         List<String> list = new ArrayList<>();
                         for (Tuple2<String, Long> element : elements) {
                             list.add(element.toString() + "|" + dateFormat.format(element.f1));
                         }
                         out.collect(list.toString());
-                        //System.out.println("window end time : " + dateFormat.format(context.window().getEnd()));
+                        System.out.println("window end time : " + dateFormat.format(context.window().getEnd()));
                     }
                 }).print().setParallelism(1);
         exev.execute();

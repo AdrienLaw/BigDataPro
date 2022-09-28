@@ -12,7 +12,7 @@
 .idea/*
 # Generated files
 .idea/**/contentModel.xml
-
+.idea/**
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
@@ -56,21 +56,25 @@ out/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
-HBasePro/target
+HBasePro/target/**
 HDFSPro/target
+FlinkPro/target
+HivePro/target
 MapReducePro/target
 # Cursive Clojure plugin
 .idea/replstate.xml
-
+**/*.iml
 # Crashlytics plugin (for Android Studio and IntelliJ)
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+HDFSPro/HDFSPro.iml
+MapReducePro/MapReducePro.iml
 
 # Editor-based Rest Client
 .idea/httpRequests
-
+.idea/
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 

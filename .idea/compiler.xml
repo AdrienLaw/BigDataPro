@@ -2,12 +2,31 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="HBasePro" />
+        <module name="MapReducePro" />
+        <module name="HivePro" />
+        <module name="PulsarPro" />
+        <module name="FlinkNewPro" />
+        <module name="FlinkPro" />
+        <module name="HDFSPro" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="BigDataPro" target="1.5" />
+      <module name="FlinkNewPro" target="8" />
+      <module name="FlinkPro" target="1.8" />
+      <module name="HBasePro" target="1.8" />
+      <module name="HBasePro (1)" target="1.5" />
+      <module name="HBasePro (2)" target="1.8" />
+      <module name="HDFSPro" target="1.8" />
+      <module name="HivePro" target="7" />
+      <module name="MapReducePro" target="1.8" />
+      <module name="PulsarPro" target="8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

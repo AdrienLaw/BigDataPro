@@ -3,7 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/BigDataPro.iml" filepath="$PROJECT_DIR$/.idea/BigDataPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FlinkNewPro/FlinkNewPro.iml" filepath="$PROJECT_DIR$/FlinkNewPro/FlinkNewPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FlinkPro/FlinkPro.iml" filepath="$PROJECT_DIR$/FlinkPro/FlinkPro.iml" />
       <module fileurl="file://$PROJECT_DIR$/HBasePro/HBasePro.iml" filepath="$PROJECT_DIR$/HBasePro/HBasePro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HDFSPro/HDFSPro.iml" filepath="$PROJECT_DIR$/HDFSPro/HDFSPro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HivePro/HivePro.iml" filepath="$PROJECT_DIR$/HivePro/HivePro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MapReducePro/MapReducePro.iml" filepath="$PROJECT_DIR$/MapReducePro/MapReducePro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PulsarPro/PulsarPro.iml" filepath="$PROJECT_DIR$/PulsarPro/PulsarPro.iml" />
     </modules>
   </component>
 </project>

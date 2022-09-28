@@ -13,6 +13,9 @@
         <module>HDFSPro</module>
         <module>MapReducePro</module>
         <module>FlinkPro</module>
+        <module>PulsarPro</module>
+        <module>FlinkNewPro</module>
+        <module>HivePro</module>
     </modules>
 
 </project>
