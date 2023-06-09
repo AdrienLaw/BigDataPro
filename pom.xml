@@ -16,6 +16,7 @@
         <module>PulsarPro</module>
         <module>FlinkNewPro</module>
         <module>HivePro</module>
+        <module>aiKfkPro</module>
     </modules>
 
 </project>

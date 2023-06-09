@@ -13,7 +13,7 @@ public class PulsarConsumer {
                 .build();
         Consumer consumer = client.newConsumer()
                 .topic("persistent://aikfk_tenant/aikfk_namespace/aikfk_topic_01")
-                .subscriptionName("aikfk-subscription-sub")
+                .subscriptionName("aikfk-subscription-sub") /**相当于 group**/
                 .subscribe();
         Message msg = null;
         while (true) {
@@ -22,7 +22,6 @@ public class PulsarConsumer {
             try {
                 // Do something with the message
                 System.out.println("Message received: " + new String(msg.getData()));
-
                 // Acknowledge the message so that it can be deleted by the message broker
                 consumer.acknowledge(msg);
             } catch (Exception e) {

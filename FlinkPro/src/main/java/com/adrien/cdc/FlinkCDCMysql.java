@@ -32,6 +32,5 @@ public class FlinkCDCMysql {
         tableEnvironment.executeSql(taxi_gps_bcdc_create);
         Table table = tableEnvironment.sqlQuery("select * from taxi_gps_cdc limit 5");
         //tableEnvironment.toDataStream(table)
-
     }
 }
