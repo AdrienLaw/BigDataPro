@@ -23,8 +23,8 @@ public class FlinkHive {
         String hiveConfDir = "conf/";  //hive-site.xml存放的位置，本地写本地，集群写集群的路径
 
         //TODO 4 注册
-        HiveCatalog hiveCatalog = new HiveCatalog(name, defaultDatabase, hiveConfDir);
-        tableEnv.registerCatalog(name,hiveCatalog);
+//        HiveCatalog hiveCatalog = new HiveCatalog(name, defaultDatabase, hiveConfDir);
+//        tableEnv.registerCatalog(name,hiveCatalog);
 
         //TODO 5 操作
         tableEnv.useCatalog(name); // 使用这个catalog
