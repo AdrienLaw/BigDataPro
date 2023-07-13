@@ -57,10 +57,11 @@ out/
 # JIRA plugin
 atlassian-ide-plugin.xml
 HBasePro/target/**
-HDFSPro/target
-FlinkPro/target
-HivePro/target
-MapReducePro/target
+HDFSPro/target/
+FlinkPro/target/
+HivePro/target/
+MapReducePro/target/
+FlinkTableSQL/target/
 # Cursive Clojure plugin
 .idea/replstate.xml
 **/*.iml

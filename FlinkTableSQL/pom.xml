@@ -12,6 +12,7 @@
     <properties>
         <flink.version>1.13.0</flink.version>
         <scala.binary.version>2.12</scala.binary.version>
+        <kafka.version>2.6.3</kafka.version>
     </properties>
 
     <artifactId>FlinkTableSQL</artifactId>
@@ -21,6 +22,7 @@
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-java</artifactId>
             <version>${flink.version}</version>
+
         </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
@@ -53,7 +55,11 @@
             <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
 
 
         <dependency>
@@ -84,8 +90,6 @@
             <version>1.0</version>
         </dependency>
 
-
-
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_${scala.binary.version}</artifactId>
@@ -99,10 +103,6 @@
             <version>${flink.version}</version>
             <!--            <scope>provided</scope>-->
         </dependency>
-
-
-
-
 
     </dependencies>
     <build>
